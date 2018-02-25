@@ -10,6 +10,8 @@ commonLib = loadstring(httpGet("https://raw.githubusercontent.com/AnkuLua/common
 getNewestVersion = loadstring(httpGet("https://raw.githubusercontent.com/RoIvI22es/FreeTimeBot/master/FreeTimeBot.lua"))
 latestVersion = getNewestVersion()
 currentVersion = "1.5.0"
+print (currentVersion)
+print (latestVersion)
 setDragDropTiming(100, 100)
 setDragDropStepCount(10)
 setDragDropStepInterval(100)
