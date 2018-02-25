@@ -9,12 +9,15 @@ maxTrialTimeout = 3600
 commonLib = loadstring(httpGet("https://raw.githubusercontent.com/AnkuLua/commonLib/master/commonLib.lua"))()
 getNewestVersion = loadstring(httpGet("https://raw.githubusercontent.com/RoIvI22es/FreeTimeBot/master/FreeTimeBot.lua"))
 latestVersion = getNewestVersion()
-currentVersion = "1.5.0"
+currentVersion = nowCurrentVersion()
 print (currentVersion)
 print (latestVersion)
 setDragDropTiming(100, 100)
 setDragDropStepCount(10)
 setDragDropStepInterval(100)
+function nowCurrentVersion()
+return "1.5.0"
+end
 mainStatImages = {  "hpMain.png", "defMain.png", "atkMain.png", "spdMain.png", "criRateMain.png",
   "criDmgMain.png", "resMain.png", "accMain.png" }
 levelBattleImages = {"level40Battle.png", "level35Battle.png", "level30Battle.png", "level25Battle.png",
