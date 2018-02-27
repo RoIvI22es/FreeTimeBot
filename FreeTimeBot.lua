@@ -27,7 +27,7 @@ elapsedTimeT = Timer()
 function automaticUpdates()
   if autoUpdate == true then
     if currentVersion == latestVersion then
-      toast ("You are up to date!")
+      toast ("This is the latest version!")
     else
       httpDownload("https://raw.githubusercontent.com/RoIvI22es/FreeTimeBot/master/version.lua", localPath .."version.lua")
       httpDownload("https://raw.githubusercontent.com/RoIvI22es/FreeTimeBot/master/FreeTimeBot.lua", localPath .."FreeTimeBot.lua")
