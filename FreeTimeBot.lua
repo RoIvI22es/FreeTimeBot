@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.6------
+------FreeTimeBot v1.5.7------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -2604,7 +2604,7 @@ function findRuneRank()
             if (r > 200 and g > 200 and b > 200) then
               runeRank = 1
             else
-              runeRank = 6
+              runeRank = 4
             end
           end
         end
@@ -2858,11 +2858,13 @@ function sellStone()
   toast("Sell")
   end
 end
-function sellGetRune ()
-  if grindstoneRegion:exists(Pattern("grindTilde.png"):similar(imgAccuracy), 0.1) then
-    sellRune()
+function sellGetRune()
+  if grindstoneRegion:exists(Pattern("grindTilde.png"):similar(0.6), 0.1) then
+    toast("Grindstone")
+    existsClick(Pattern("sellStone.png"):similar(0.6), 0.1)
   elseif enchantedGemRegion:exists(Pattern("enchantedGem.png"):similar(.6), 0.1) then
-    sellRune()
+    toast("Enchanted Gem")
+    existsClick(Pattern("sellStone.png"):similar(0.6), 0.1)
   elseif sellAllRune == true then
     sellRune()
   elseif keepAll == true then
