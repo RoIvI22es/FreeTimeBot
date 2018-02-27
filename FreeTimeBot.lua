@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.1------
+------FreeTimeBot v1.5.2------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -9,7 +9,6 @@ commonLib = loadstring(httpGet("https://raw.githubusercontent.com/AnkuLua/common
 getNewestVersion = loadstring(httpGet("https://raw.githubusercontent.com/RoIvI22es/FreeTimeBot/master/version.lua"))
 latestVersion = getNewestVersion()
 currentVersion = dofile(localPath .."version.lua")
-print (currentVersion)
 print (latestVersion)
 setDragDropTiming(100, 100)
 setDragDropStepCount(10)
