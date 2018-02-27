@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.0------
+------FreeTimeBot v1.5.1------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -3161,9 +3161,11 @@ function findArena()
   toast("Finding Arena")
   closeXStartDialog:existsClick(Pattern("closeX.png"), 0.1)
 if exists(Pattern("mapArena.png"):similar(imgAccuracy), 0.1) then
+    closeDungeonAds()
     clickMatchupArena()
   elseif dialogCairoDungeonRegion:exists(Pattern("cairoDungeon.png"):similar(imgAccuracy), 0.1) then
     closeCairoDungeonDialogBox()
+	closeDungeonAds()
 	if exists(Pattern("mapArena.png"):similar(imgAccuracy), 0.1) then
       clickMatchupArena()
     else
@@ -4758,6 +4760,26 @@ function closeIslandAds()
 	keyevent(4)
   end
 end
+function closeDungeonAds()
+  if okPurchaseRegion:existsClick(Pattern("okPurchase.png"):similar(imgAccuracy), 0.1) then
+  end
+  if closePurchaseRegion:existsClick(Pattern("closePurchase.png"):similar(imgAccuracy), 0.1) then
+  end
+  if dialogTextCenterRegion:exists(Pattern("purchaseItem.png"):similar(imgAccuracy), 0.1) or exists(Pattern("closePopUpNow.png"):similar(imgAccuracy), 0.1) then
+    toast("Closing ADS")
+    hideBattleResult()
+    closeXPurchaseRegion:existsClick(Pattern("closeX.png"):similar(imgAccuracy), 3)
+    existsClick(Pattern("close.png"), 0.1)
+    yesRegion:existsClick(Pattern("yes.png"):similar(imgAccuracy * 0.9), 3)
+    showBattleResult()
+    if runArena == true then
+      findArena()
+    end 
+    if runArena == false and runMagicShop == true then
+	  findMagicShop()
+    end
+  end
+end
 function findMagicShop()
   if runMagicShop then
     toast("Finding Magic Shop")
@@ -4782,6 +4804,7 @@ function findMagicShop()
     getIslandStuff()
   elseif dialogCairoDungeonRegion:exists(Pattern("cairoDungeon.png"):similar(imgAccuracy), 0.1) then
     closeCairoDungeonDialogBox()
+	closeDungeonAds()
     backButtonRegion:existsClick(Pattern("backButton.png"):similar(0.8), 2)
 	closeIslandAds()
 	getIslandStuff()
