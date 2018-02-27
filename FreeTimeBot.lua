@@ -5035,7 +5035,7 @@ function runRiftRaidStart()
     end
     if exists(Pattern("isntOver.png"):similar(.7), 0.1) then
 	  toast("Waiting few seconds")	
-	  wait(7)
+	  wait(5)
     end	
 	raidReadyRegion:existsClick(Pattern("raidReady.png"):similar(0.6), 0.1)	
     if raidVictoryTotalRegion:exists(Pattern("raidVictoryTotal.png"):similar(0.6), 0.1) then
