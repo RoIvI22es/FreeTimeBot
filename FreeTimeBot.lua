@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.5------
+------FreeTimeBot v1.5.6------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -102,7 +102,7 @@ runeRarity2 = 0
 runeRarity1 = 0
 stoneRarity = 0
 end
-function defaultTrueFalse ()
+function defaultTrueFalse()
 refillEnergy = false
 runFriendMon = false
 isArenaRival = false
@@ -313,17 +313,17 @@ slot1MaxLevelRegion = Region(495, 640, 120, 120)
 slot2MaxLevelRegion = Region(885, 640, 120, 120)
 slot3MaxLevelRegion = Region(1280, 640, 120, 120)
 slot4MaxLevelRegion = Region(495, 770, 120, 120)
-------------------------------------------------
+---------------------------------------------------
 battleSlot1Region = Region(400, 200, 170, 170)
 battleSlot2Region = Region(200, 305, 170, 170)
 battleSlot3Region = Region(600, 305, 170, 170)
 battleSlot4Region = Region(400, 410, 170, 170)
-----------------------------------------------
+---------------------------------------------------
 battleLevelSlot1Region = Region(400, 200, 170, 170)
 battleLevelSlot2Region = Region(304, 429, 64, 47)
 battleLevelSlot3Region = Region(694, 428, 64, 47)
 battleLevelSlot4Region = Region(497, 531, 64, 47)
--------------------------------------------------
+---------------------------------------------------
 fodderListRegion = Region(125, 655, 1305, 170)
 fodderSlot8Region = Region(1155, 765, 165, 50)
 fodderSlot7Region = Region(995, 765, 160, 50)
@@ -1535,6 +1535,9 @@ function start()
     if runMagicShop == true then 
 	  checkMagicShop()
 	end
+    if startRegion:exists(Pattern("start.png"):similar(imgAccuracy), 2) and miniBoss == true then 
+	  attackMiniBoss()	
+	end		
     takeSnapshot()
 	if not startDialogRegion:exists(Pattern("startArenaBattle.png"), 0.1) and not startDialogRegion:exists(Pattern("startGiant.png"), 0.1) and not startDialogRegion:exists(Pattern("startDragon.png"), 0.1) and not startDialogRegion:exists(Pattern("startNecro.png"), 0.1) and not startDialogRegion:exists(Pattern("startSD.png"), 0.1) and not startDialogRegion:exists(Pattern("startHall.png"), 0.1) and not startDialogRegion:exists(Pattern("startRaid.png"), 0.1) and not startDialogRegion:exists(Pattern("startRift.png"), 0.1) and not startDialogRegion:exists(Pattern("startToa.png"), 0.1) then
       friendMon()
@@ -1551,7 +1554,6 @@ function start()
     end
   end
   clearSnapshot()
-  attackMiniBoss()
 end
 function replayOrNext()
   if nextArea then
@@ -1565,6 +1567,7 @@ function attackMiniBoss()
   	if runGiant or runDragon or runNecro and miniBoss == true then
 	local miniBossDead = false
 	if (miniBoss == true and miniBossDead == false) then
+	  startRegion:existsClick(Pattern("start.png"):similar(imgAccuracy), 3)
 	  if exists(Pattern("notEnoughtEnergy.png"):similar(0.9), 0.1) then
 	    refill()
 		wait(5)
