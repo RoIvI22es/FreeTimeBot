@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.2------
+------FreeTimeBot v1.5.3------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -23,8 +23,6 @@ battleSlotStarLevelImages = { "star6BattlePink.png", "star6BattleWhite.png", "st
   "star2BattleWhite.png", "star1BattleWhite.png", }
 FodderSlotImages = {"0FodderSlot.png", "1FodderSlot.png", "2FodderSlot.png", "3FodderSlot.png", "4FodderSlot.png"}
 runeRarityImages = {"runeLegendary.png", "runeHero.png", "runeRare.png", "runeMagic.png", "runeNormal.png"}
-liveArenaImages = {"icares.png", "ritesh.png", "chasun.png", "moLong.png", "moLongChoice.png", "seara.png", "camilla.png", "emma.png", "veromos.png", "chow.png", "hwa.png", "teomars.png"}
-liveArenaLeaderImages = {"moLong.png", "veromos.png", "seara.png"}
 elapsedTimeT = Timer()
 function automaticUpdates()
   if autoUpdate == true then
