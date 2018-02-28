@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.7------
+------FreeTimeBot v1.5.8------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -220,6 +220,7 @@ stoneRarityRegion = Region(723, 363, 31, 28)
 raidSellStoneRegion = Region(678, 710, 251, 56)
 enchantedGemRegion = Region(750, 350, 350, 150)
 spamAdsRegion = Region(1396, 95, 282, 238)
+spamAdsCloseXRegion = Region(1600, 0, 320, 320)
 raidBattleTimeRegion = Region(1714, 6, 140, 57) 
 raidJoinRegion = Region(1300, 845, 250, 65)
 raidReadyRegion = Region(1550, 950, 250, 75)
@@ -4763,6 +4764,10 @@ function closeIslandAds()
 	keyevent(4)
 	keyevent(4)
   end
+  if spamAdsCloseXRegion:exists(Pattern("closeX.png"):similar(.7), 0.1) then
+    toast("Closing ADS")
+	keyevent(4)
+  end    
 end
 function closeDungeonAds()
   if okPurchaseRegion:existsClick(Pattern("okPurchase.png"):similar(imgAccuracy), 0.1) then
@@ -4783,6 +4788,10 @@ function closeDungeonAds()
 	  findMagicShop()
     end
   end
+  if spamAdsCloseXRegion:exists(Pattern("closeX.png"):similar(.7), 0.1) then
+    toast("Closing ADS")
+	keyevent(4)
+  end    
 end
 function findMagicShop()
   if runMagicShop then
