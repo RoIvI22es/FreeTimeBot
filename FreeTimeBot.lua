@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.8------
+------FreeTimeBot v1.5.9------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -689,9 +689,9 @@ function dialogBox()
   addSeparator()
   addTextView("-------------------- Rift Raid Options --------------------")
   newRow()  
-  addCheckBox("noLeaderSkill", "Leave party if NO Leader Skill?", false)
+  addCheckBox("noLeaderSkill", "Leave party if 'No Leader Skill'?", false)
   newRow()
-  addCheckBox("riftRaidDefeat", "Leave party after defeat?", true) 
+  addCheckBox("riftRaidDefeat", "Leave party after Defeat?", true) 
   newRow()
   addCheckBox("raidBattleTime", "Leave party if Battle lasted more than 4 minutes?", false)  
   addSeparator()
@@ -3250,6 +3250,9 @@ function findLiveArena()
   if exists(Pattern("mapBattleButton.png"):similar(.7), 0.1) then
     existsClick(Pattern("mapBattleButton.png"):similar(.6), 3)
   end	
+  if runMagicShop == true then
+    checkMagicShop()
+  end    
   if liveArenaMapRegion:exists(Pattern("mapLiveArena.png"), 0.1) then
     clickLiveArena()
   elseif exists(Pattern("mapArena.png"):similar(imgAccuracy), 0.1) then
@@ -3872,6 +3875,9 @@ function existsRift()
   end
 end
 function findRift()
+  if runMagicShop == true then
+    checkMagicShop()
+  end
   if runRiftFire then
     toast("Finding Rift (Fire Beast)")
   elseif runRiftIce then
