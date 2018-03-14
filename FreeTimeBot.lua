@@ -2801,9 +2801,9 @@ function runeKeep5 ()
   runeStatRegion:highlight(runeStatString)
 end
 function findStoneRarity()
-  local loc = Location(730, 370)
+  local loc = Location(715, 370)
   local r, g, b = getColor(loc)
-  if (r == 136 and g == 16 and b == 18) then
+  if (r == 135 and g == 16 and b == 18) then
     stoneRarity = 6
 	toast("Legend")
   else
@@ -2846,6 +2846,7 @@ function getStone()
   end
   raidGetRegion:existsClick(Pattern("get.png"):similar(0.6), 0.1)
   if stoneRarity == 6 then LegStoneCount = LegStoneCount + 1
+  toast("Get")  
   elseif stoneRarity == 5 then HeroStoneCount = HeroStoneCount + 1
   toast("Get")
   end
