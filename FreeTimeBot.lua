@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.5.9------
+------FreeTimeBot v1.6.0------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -2809,13 +2809,13 @@ function findStoneRarity()
   else
     local loc = Location(730, 370)
     local r, g, b = getColor(loc)
-    if (r == 86 and g == 11 and b == 59) then
+    if (r == 87 and g == 11 and b == 59) then
       stoneRarity = 5
 	  toast("Hero")
     else
-      local loc = Location(739, 377)
+      local loc = Location(650, 370)
       local r, g, b = getColor(loc)
-      if (r == 23 and g == 74 and b == 109) then
+      if (r == 15 and g == 47 and b == 70) then
         stoneRarity = 4
 		toast("Rare")
       else stoneRarity = 0
