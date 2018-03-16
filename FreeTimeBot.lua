@@ -1,5 +1,5 @@
 ------------------------------
-------FreeTimeBot v1.6.0------
+------FreeTimeBot v1.6.1------
 ---------by RoIvI22es---------
 ------------------------------
 localPath = scriptPath()
@@ -2800,27 +2800,48 @@ function runeKeep5 ()
   end
   runeStatRegion:highlight(runeStatString)
 end
-function findStoneRarity()
-  local loc = Location(715, 370)
+function findStoneRarity()           
+  local loc = Location(715, 370)             -------------- Resuded Quality ON
   local r, g, b = getColor(loc)
   if (r == 135 and g == 16 and b == 18) then
     stoneRarity = 6
 	toast("Legend")
   else
-    local loc = Location(730, 370)
+    local loc = Location(739, 377)           -------------- Resuded Quality OFF
     local r, g, b = getColor(loc)
-    if (r == 87 and g == 11 and b == 59) then
-      stoneRarity = 5
-	  toast("Hero")
+    if (r == 195 and g == 22 and b == 28) then
+      stoneRarity = 6
+	  toast("Legend")
     else
-      local loc = Location(650, 370)
+      local loc = Location(730, 370)
       local r, g, b = getColor(loc)
-      if (r == 15 and g == 47 and b == 70) then
-        stoneRarity = 4
-		toast("Rare")
-      else stoneRarity = 0
-	  end
-    end
+      if (r == 87 and g == 11 and b == 59) then
+        stoneRarity = 5
+	    toast("Hero")
+      else
+	    local loc = Location(730, 370)
+        local r, g, b = getColor(loc)
+        if (r == 86 and g == 11 and b == 59) then
+          stoneRarity = 5
+	      toast("Hero")
+        else  
+          local loc = Location(650, 370)
+          local r, g, b = getColor(loc)
+          if (r == 15 and g == 47 and b == 70) then
+            stoneRarity = 4
+		    toast("Rare")
+		  else
+            local loc = Location(739, 377)
+            local r, g, b = getColor(loc)
+            if (r == 23 and g == 74 and b == 109) then
+              stoneRarity = 4
+		      toast("Rare")
+            else stoneRarity = 0
+			end
+	      end
+        end
+      end
+	end
   end
 end
 function stoneKeep()
