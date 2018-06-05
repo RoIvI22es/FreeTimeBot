@@ -231,6 +231,7 @@ raidOkRegion = Region(825, 625, 250, 250)
 sameSessionRegion = Region(780, 360, 180, 50)
 raidGetRegion = Region(1035, 635, 145, 115)
 raidDropInfoRegion = Region(636, 182, 91, 93)
+raidAcceptRegion = Region(682, 238, 232, 54) 
 startRegion = Region(1490, 765, 125, 55)
 startDialogRegion = Region(0, 0, 500, 75)
 victoryDefeatRegion = Region(860, 105, 230, 145)
@@ -270,7 +271,7 @@ notEnoughWingRegion = Region(850, 355, 260, 65)
 rechargeFlashRegion = Region(455, 395, 195, 235)
 yesPurchaseRegion = Region(745, 635, 110, 60)
 okPurchaseRegion = Region(915, 625, 90, 60)
-closePurchaseRegion = Region(900, 895, 125, 60)
+closePurchaseRegion = Region(1555, 110, 90, 80)
 dialogTextCenterRegion = Region(600, 0, 750, 275)
 dialogToaRegion = Region(710, 65, 305, 85)
 closeXCairoDungeonRegion = Region(1635, 75, 70, 70)
@@ -1600,7 +1601,7 @@ function refill()
     rechargeFlashRegion:existsClick(Pattern("rechargeFlash.png"):similar(imgAccuracy), 3)
     yesPurchaseRegion:existsClick(Pattern("yesPurchase.png"):similar(imgAccuracy), 3)
     okPurchaseRegion:existsClick(Pattern("okPurchase.png"):similar(imgAccuracy), 3)
-    closePurchaseRegion:existsClick(Pattern("closePurchase.png"):similar(imgAccuracy), 3)
+    closePurchaseRegion:existsClick(Pattern("closeX.png"):similar(imgAccuracy), 3)
   else
     refillNoRegion:existsClick(Pattern("noPurchase.png"):similar(imgAccuracy), 3)
     while waitTimer > 0 do
@@ -5030,11 +5031,17 @@ function resetNoRaidActivity()
 end
 function runRiftRaidStart()
   while runRiftRaid do
+    if connectionDelayRegion:exists(Pattern("connectionDelay.png"):similar(0.6), 0.1) then
+      yesRegion:existsClick(Pattern("yes.png"):similar(0.6), 0.1)
+	end
     if raidJoinRegion:exists(Pattern("raidJoinParty.png"):similar(0.6), 0.1) then
       if runMagicShop == true then 
 	    checkMagicShop()
 	  end	
       raidJoinRegion:existsClick(Pattern("raidJoinParty.png"):similar(0.6), 0.1)	
+	end
+	if raidAcceptRegion:exists(Pattern("raidAccept.png"):similar(0.6), 0.1) then
+	  raidAcceptRegion:existsClick(Pattern("raidAccept.png"):similar(0.6), 0.1)
 	end
 	raidReadyRegion:existsClick(Pattern("raidReady.png"):similar(0.6), 0.1)
 	if raidReadyRegion:existsClick(Pattern("raidStart.png"):similar(0.6), 0.1) then
